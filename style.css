@@ -6,6 +6,9 @@
   --accent: #3f6f63;
   --accent-dark: #31574d;
   --border: #e4dfd6;
+  --soft: #edf3f1;
+  --danger-bg: #fff0f0;
+  --danger-text: #8a2020;
 }
 
 * {
@@ -22,6 +25,10 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
   color: var(--text);
   background: var(--bg);
+}
+
+body.modal-open {
+  overflow: hidden;
 }
 
 .page {
@@ -48,7 +55,7 @@ body {
   margin-bottom: 12px;
   padding: 6px 10px;
   border-radius: 999px;
-  background: #edf3f1;
+  background: var(--soft);
   color: var(--accent-dark);
   font-size: 13px;
   font-weight: 700;
@@ -78,14 +85,17 @@ h1 {
   display: block;
   width: 100%;
   padding: 15px 16px;
+  border: 0;
   border-radius: 16px;
   background: var(--accent);
   color: #ffffff;
   text-decoration: none;
   text-align: center;
+  font-family: inherit;
   font-size: 17px;
   font-weight: 700;
   line-height: 1.2;
+  cursor: pointer;
   transition: transform 0.12s ease, background 0.12s ease;
 }
 
@@ -112,9 +122,190 @@ h1 {
   margin: 0;
   padding: 14px;
   border-radius: 14px;
-  background: #fff0f0;
-  color: #8a2020;
+  background: var(--danger-bg);
+  color: var(--danger-text);
   text-align: center;
+  font-size: 14px;
+}
+
+.modal[hidden] {
+  display: none;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  padding: 16px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 20, 20, 0.45);
+}
+
+.modal-panel {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 460px;
+  max-height: 88vh;
+  overflow: auto;
+  background: #ffffff;
+  border-radius: 24px 24px 18px 18px;
+  padding: 22px 16px 16px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.24);
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 38px;
+  height: 38px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--soft);
+  color: var(--text);
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.modal-close:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+h2 {
+  margin: 0;
+  padding-right: 48px;
+  font-size: 24px;
+  line-height: 1.15;
+}
+
+.modal-subtitle {
+  margin: 8px 0 16px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.person-list {
+  display: grid;
+  gap: 12px;
+}
+
+.person-card {
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: #fbfaf8;
+}
+
+.person-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.person-avatar {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--soft);
+  color: var(--accent-dark);
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.person-text {
+  min-width: 0;
+}
+
+.person-name {
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.person-comment {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+.contact-links {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: var(--accent);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.contact-link:hover,
+.contact-link:focus {
+  background: var(--accent-dark);
+  outline: none;
+}
+
+.contact-logo {
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+}
+
+.contact-link-label {
+  min-width: 0;
+}
+
+.empty-links {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--soft);
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+@media (min-width: 560px) {
+  .modal {
+    align-items: center;
+  }
+
+  .modal-panel {
+    border-radius: 24px;
+  }
 }
 
 @media (max-width: 380px) {
