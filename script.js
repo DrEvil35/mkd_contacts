@@ -5,8 +5,9 @@ const fallbackData = {
   "people": [
     {
       "id": "chairperson",
-      "fullName": "Председатель совета дома",
+      "fullName": "Михайлов Александр",
       "role": "Председатель",
+      "note": "VK, Telegram, MAX",
       "contacts": [
         {
           "type": "vk",
@@ -27,8 +28,9 @@ const fallbackData = {
     },
     {
       "id": "vk-id88635166",
-      "fullName": "ФИО не указано",
+      "fullName": "Екатерина Ильина",
       "role": "Ответственный по подъезду",
+      "note": "VK: id88635166",
       "contacts": [
         {
           "type": "vk",
@@ -39,8 +41,9 @@ const fallbackData = {
     },
     {
       "id": "vk-dobriakova_annetta_astro",
-      "fullName": "ФИО не указано",
+      "fullName": "Добрякова Анна",
       "role": "Ответственный по подъезду",
+      "note": "VK: dobriakova_annetta_astro",
       "contacts": [
         {
           "type": "vk",
@@ -51,8 +54,9 @@ const fallbackData = {
     },
     {
       "id": "vk-id35704209",
-      "fullName": "ФИО не указано",
+      "fullName": "Наталья Одинцова",
       "role": "Ответственный по подъезду",
+      "note": "VK: id35704209",
       "contacts": [
         {
           "type": "vk",
@@ -63,8 +67,9 @@ const fallbackData = {
     },
     {
       "id": "vk-id135852948",
-      "fullName": "ФИО не указано",
+      "fullName": "Ольга Куликова",
       "role": "Ответственный по подъезду",
+      "note": "VK: id135852948",
       "contacts": [
         {
           "type": "vk",
@@ -75,8 +80,9 @@ const fallbackData = {
     },
     {
       "id": "vk-svetlashshka",
-      "fullName": "ФИО не указано",
+      "fullName": "Светлана Казакова",
       "role": "Ответственный по подъезду",
+      "note": "VK: svetlashshka",
       "contacts": [
         {
           "type": "vk",
@@ -87,8 +93,9 @@ const fallbackData = {
     },
     {
       "id": "vk-id133296016",
-      "fullName": "ФИО не указано",
+      "fullName": "Анна Лян",
       "role": "Ответственный по подъезду",
+      "note": "VK: id133296016",
       "contacts": [
         {
           "type": "vk",
@@ -99,8 +106,9 @@ const fallbackData = {
     },
     {
       "id": "vk-id145319957",
-      "fullName": "ФИО не указано",
+      "fullName": "Ольга Белова",
       "role": "Ответственный по подъезду",
+      "note": "VK: id145319957",
       "contacts": [
         {
           "type": "vk",
@@ -111,8 +119,9 @@ const fallbackData = {
     },
     {
       "id": "vk-ananac1k",
-      "fullName": "ФИО не указано",
+      "fullName": "Анастасия Филиппова",
       "role": "Ответственный по подъезду",
+      "note": "VK: ananac1k",
       "contacts": [
         {
           "type": "vk",
@@ -123,8 +132,9 @@ const fallbackData = {
     },
     {
       "id": "vk-marushashalfey",
-      "fullName": "ФИО не указано",
+      "fullName": "Мария Солопова",
       "role": "Ответственный по подъезду",
+      "note": "VK: marushashalfey",
       "contacts": [
         {
           "type": "vk",
@@ -135,8 +145,9 @@ const fallbackData = {
     },
     {
       "id": "vk-id434704139",
-      "fullName": "ФИО не указано",
+      "fullName": "Эдвард Кузюпов",
       "role": "Ответственный по подъезду",
+      "note": "VK: id434704139",
       "contacts": [
         {
           "type": "vk",
@@ -147,8 +158,9 @@ const fallbackData = {
     },
     {
       "id": "vk-id68547",
-      "fullName": "ФИО не указано",
+      "fullName": "Александр Семичев",
       "role": "Ответственный по подъезду",
+      "note": "VK: id68547",
       "contacts": [
         {
           "type": "vk",
@@ -159,8 +171,9 @@ const fallbackData = {
     },
     {
       "id": "vk-id9854585",
-      "fullName": "ФИО не указано",
+      "fullName": "Анна Волкова",
       "role": "Ответственный по подъезду",
+      "note": "VK: id9854585",
       "contacts": [
         {
           "type": "vk",
@@ -173,6 +186,7 @@ const fallbackData = {
       "id": "reserve-person",
       "fullName": "Замещающее лицо",
       "role": "Замещающий контакт",
+      "note": "Контакты будут добавлены позже",
       "contacts": []
     }
   ],
@@ -180,113 +194,113 @@ const fallbackData = {
     {
       "label": "1 подъезд",
       "personIds": [
-        "chairperson",
         "vk-id88635166",
-        "reserve-person"
+        "reserve-person",
+        "chairperson"
       ]
     },
     {
       "label": "2 подъезд",
       "personIds": [
-        "chairperson",
         "vk-dobriakova_annetta_astro",
-        "reserve-person"
+        "reserve-person",
+        "chairperson"
       ]
     },
     {
       "label": "3 подъезд",
       "personIds": [
-        "chairperson",
         "vk-id35704209",
-        "reserve-person"
+        "reserve-person",
+        "chairperson"
       ]
     },
     {
       "label": "4 подъезд",
       "personIds": [
-        "chairperson",
         "vk-id135852948",
-        "reserve-person"
+        "reserve-person",
+        "chairperson"
       ]
     },
     {
       "label": "5 подъезд",
       "personIds": [
-        "chairperson",
         "vk-dobriakova_annetta_astro",
-        "reserve-person"
+        "reserve-person",
+        "chairperson"
       ]
     },
     {
       "label": "6 подъезд",
       "personIds": [
-        "chairperson",
         "vk-dobriakova_annetta_astro",
-        "reserve-person"
+        "reserve-person",
+        "chairperson"
       ]
     },
     {
       "label": "7 подъезд",
       "personIds": [
-        "chairperson",
         "vk-svetlashshka",
-        "reserve-person"
+        "reserve-person",
+        "chairperson"
       ]
     },
     {
       "label": "8 подъезд",
       "personIds": [
-        "chairperson",
         "vk-id133296016",
-        "reserve-person"
+        "reserve-person",
+        "chairperson"
       ]
     },
     {
       "label": "9 подъезд",
       "personIds": [
-        "chairperson",
         "vk-id145319957",
-        "reserve-person"
+        "reserve-person",
+        "chairperson"
       ]
     },
     {
       "label": "10 подъезд",
       "personIds": [
-        "chairperson",
         "vk-ananac1k",
-        "reserve-person"
+        "reserve-person",
+        "chairperson"
       ]
     },
     {
       "label": "11 подъезд",
       "personIds": [
-        "chairperson",
         "vk-marushashalfey",
-        "reserve-person"
+        "reserve-person",
+        "chairperson"
       ]
     },
     {
       "label": "12 подъезд",
       "personIds": [
-        "chairperson",
         "vk-id434704139",
-        "reserve-person"
+        "reserve-person",
+        "chairperson"
       ]
     },
     {
       "label": "13 подъезд",
       "personIds": [
-        "chairperson",
         "vk-id68547",
-        "reserve-person"
+        "reserve-person",
+        "chairperson"
       ]
     },
     {
       "label": "14 подъезд",
       "personIds": [
-        "chairperson",
         "vk-id9854585",
-        "reserve-person"
+        "reserve-person",
+        "chairperson"
       ]
     }
   ]
@@ -303,43 +317,18 @@ const modalContacts = document.getElementById('modal-contacts');
 const debugError = document.getElementById('debug-error');
 
 const socialMeta = {
-  vk: {
-    name: 'VK',
-    icon: 'VK'
-  },
-  telegram: {
-    name: 'Telegram',
-    icon: 'TG'
-  },
-  max: {
-    name: 'MAX',
-    icon: 'MAX'
-  },
-  phone: {
-    name: 'Телефон',
-    icon: '☎'
-  },
-  email: {
-    name: 'Email',
-    icon: '@'
-  },
-  whatsapp: {
-    name: 'WhatsApp',
-    icon: 'WA'
-  }
+  vk: { name: 'VK', icon: 'VK' },
+  telegram: { name: 'Telegram', icon: 'TG' },
+  max: { name: 'MAX', icon: 'MAX' },
+  phone: { name: 'Телефон', icon: '☎' },
+  email: { name: 'Email', icon: '@' },
+  whatsapp: { name: 'WhatsApp', icon: 'WA' }
 };
 
 function createElement(tag, className, text) {
   const element = document.createElement(tag);
-
-  if (className) {
-    element.className = className;
-  }
-
-  if (text !== undefined && text !== null) {
-    element.textContent = text;
-  }
-
+  if (className) element.className = className;
+  if (text !== undefined && text !== null) element.textContent = text;
   return element;
 }
 
@@ -347,10 +336,29 @@ function normalizeType(type) {
   return String(type || 'link').trim().toLowerCase();
 }
 
+function hasContacts(person) {
+  return person && Array.isArray(person.contacts) && person.contacts.some(function (link) {
+    return link && link.url;
+  });
+}
+
+function shouldShowPerson(person) {
+  if (!person) return false;
+
+  const id = String(person.id || '').toLowerCase();
+  const role = String(person.role || '').toLowerCase();
+
+  if ((id === 'reserve-person' || role.indexOf('замещ') !== -1) && !hasContacts(person)) {
+    return false;
+  }
+
+  return true;
+}
+
 function getInitials(fullName) {
   const cleanName = String(fullName || '').trim();
 
-  if (!cleanName || cleanName === 'ФИО не указано') {
+  if (!cleanName || cleanName === 'ФИО не указано' || cleanName === 'ФИО уточняется') {
     return '?';
   }
 
@@ -358,9 +366,7 @@ function getInitials(fullName) {
     .split(/\s+/)
     .filter(Boolean)
     .slice(0, 2)
-    .map(function (word) {
-      return word.charAt(0).toUpperCase();
-    })
+    .map(function (word) { return word.charAt(0).toUpperCase(); })
     .join('');
 }
 
@@ -381,7 +387,6 @@ function createContactLink(link) {
 
   textWrap.appendChild(label);
   textWrap.appendChild(hint);
-
   a.appendChild(logo);
   a.appendChild(textWrap);
 
@@ -391,6 +396,10 @@ function createContactLink(link) {
 function createPersonCard(person) {
   const card = createElement('article', 'person-card');
 
+  if (person.id === 'chairperson') {
+    card.className += ' person-card-chairperson';
+  }
+
   const header = createElement('div', 'person-header');
   const avatar = createElement('div', 'person-avatar', getInitials(person.fullName));
   const text = createElement('div', 'person-text');
@@ -399,49 +408,59 @@ function createPersonCard(person) {
 
   text.appendChild(role);
   text.appendChild(name);
+
+  if (person.note) {
+    text.appendChild(createElement('div', 'person-note', person.note));
+  }
+
   header.appendChild(avatar);
   header.appendChild(text);
   card.appendChild(header);
 
   const linksWrap = createElement('div', 'contact-links');
 
-  if (Array.isArray(person.contacts) && person.contacts.length) {
+  if (hasContacts(person)) {
     person.contacts.forEach(function (link) {
-      if (link && link.url) {
-        linksWrap.appendChild(createContactLink(link));
-      }
+      if (link && link.url) linksWrap.appendChild(createContactLink(link));
     });
-  } else {
-    linksWrap.appendChild(createElement('div', 'empty-links', 'Контакты будут добавлены позже'));
+    card.appendChild(linksWrap);
   }
 
-  card.appendChild(linksWrap);
   return card;
 }
 
 function openModal(entrance) {
   modalTitle.textContent = entrance.label;
-  modalSubtitle.textContent = 'Выберите человека и подходящий канал связи.';
-
+  modalSubtitle.textContent = 'Сначала ответственный по подъезду, ниже — председатель совета дома.';
   modalContacts.innerHTML = '';
 
   const personIds = Array.isArray(entrance.personIds) ? entrance.personIds : [];
+  let visibleCount = 0;
 
   personIds.forEach(function (personId) {
     const person = peopleById[personId];
 
-    if (person) {
-      modalContacts.appendChild(createPersonCard(person));
-    } else {
+    if (!person) {
       modalContacts.appendChild(createElement('div', 'error', 'Контакт с id «' + personId + '» не найден в people.'));
+      visibleCount += 1;
+      return;
     }
+
+    if (!shouldShowPerson(person)) {
+      return;
+    }
+
+    modalContacts.appendChild(createPersonCard(person));
+    visibleCount += 1;
   });
+
+  if (!visibleCount) {
+    modalContacts.appendChild(createElement('div', 'empty-links', 'Для этого подъезда контакты пока не указаны.'));
+  }
 
   modal.hidden = false;
   document.body.classList.add('modal-open');
-
-  const closeButton = modal.querySelector('.modal-close');
-  closeButton.focus();
+  modal.querySelector('.modal-close').focus();
 }
 
 function closeModal() {
@@ -450,17 +469,9 @@ function closeModal() {
 }
 
 function validateData(data) {
-  if (!data || typeof data !== 'object') {
-    throw new Error('contacts.json должен содержать объект.');
-  }
-
-  if (!Array.isArray(data.people)) {
-    throw new Error('В contacts.json нет массива people.');
-  }
-
-  if (!Array.isArray(data.entrances)) {
-    throw new Error('В contacts.json нет массива entrances.');
-  }
+  if (!data || typeof data !== 'object') throw new Error('contacts.json должен содержать объект.');
+  if (!Array.isArray(data.people)) throw new Error('В contacts.json нет массива people.');
+  if (!Array.isArray(data.entrances)) throw new Error('В contacts.json нет массива entrances.');
 }
 
 function renderPage(data) {
@@ -473,9 +484,7 @@ function renderPage(data) {
 
   peopleById = {};
   data.people.forEach(function (person) {
-    if (person && person.id) {
-      peopleById[person.id] = person;
-    }
+    if (person && person.id) peopleById[person.id] = person;
   });
 
   entranceList.innerHTML = '';
@@ -487,18 +496,11 @@ function renderPage(data) {
 
     const number = String(entrance.label || '').replace(/[^0-9]/g, '') || '?';
 
-    const numberElement = createElement('span', 'entrance-number', number);
-    const textElement = createElement('span', 'entrance-text', 'подъезд');
-    const arrowElement = createElement('span', 'entrance-arrow', '›');
+    button.appendChild(createElement('span', 'entrance-number', number));
+    button.appendChild(createElement('span', 'entrance-text', 'подъезд'));
+    button.appendChild(createElement('span', 'entrance-chevron', '›'));
 
-    button.appendChild(numberElement);
-    button.appendChild(textElement);
-    button.appendChild(arrowElement);
-
-    button.addEventListener('click', function () {
-      openModal(entrance);
-    });
-
+    button.addEventListener('click', function () { openModal(entrance); });
     entranceList.appendChild(button);
   });
 }
@@ -506,17 +508,14 @@ function renderPage(data) {
 async function loadContacts() {
   try {
     const response = await fetch('contacts.json', { cache: 'no-store' });
-
-    if (!response.ok) {
-      throw new Error('contacts.json не загружен: HTTP ' + response.status);
-    }
+    if (!response.ok) throw new Error('contacts.json не загружен: HTTP ' + response.status);
 
     pageData = await response.json();
     renderPage(pageData);
   } catch (error) {
     console.warn('Используется встроенная резервная копия данных.', error);
     debugError.hidden = false;
-    debugError.textContent = 'Данные загружены из резервной копии. Проверьте файл contacts.json: ' + error.message;
+    debugError.textContent = 'Данные загружены из резервной копии. Проверьте contacts.json: ' + error.message;
 
     try {
       pageData = fallbackData;
@@ -530,15 +529,11 @@ async function loadContacts() {
 }
 
 modal.addEventListener('click', function (event) {
-  if (event.target.hasAttribute('data-close-modal')) {
-    closeModal();
-  }
+  if (event.target.hasAttribute('data-close-modal')) closeModal();
 });
 
 document.addEventListener('keydown', function (event) {
-  if (event.key === 'Escape' && !modal.hidden) {
-    closeModal();
-  }
+  if (event.key === 'Escape' && !modal.hidden) closeModal();
 });
 
 loadContacts();

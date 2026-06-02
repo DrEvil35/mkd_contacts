@@ -194,113 +194,113 @@
     {
       "label": "1 подъезд",
       "personIds": [
-        "chairperson",
         "vk-id88635166",
-        "reserve-person"
+        "reserve-person",
+        "chairperson"
       ]
     },
     {
       "label": "2 подъезд",
       "personIds": [
-        "chairperson",
         "vk-dobriakova_annetta_astro",
-        "reserve-person"
+        "reserve-person",
+        "chairperson"
       ]
     },
     {
       "label": "3 подъезд",
       "personIds": [
-        "chairperson",
         "vk-id35704209",
-        "reserve-person"
+        "reserve-person",
+        "chairperson"
       ]
     },
     {
       "label": "4 подъезд",
       "personIds": [
-        "chairperson",
         "vk-id135852948",
-        "reserve-person"
+        "reserve-person",
+        "chairperson"
       ]
     },
     {
       "label": "5 подъезд",
       "personIds": [
-        "chairperson",
         "vk-dobriakova_annetta_astro",
-        "reserve-person"
+        "reserve-person",
+        "chairperson"
       ]
     },
     {
       "label": "6 подъезд",
       "personIds": [
-        "chairperson",
         "vk-dobriakova_annetta_astro",
-        "reserve-person"
+        "reserve-person",
+        "chairperson"
       ]
     },
     {
       "label": "7 подъезд",
       "personIds": [
-        "chairperson",
         "vk-svetlashshka",
-        "reserve-person"
+        "reserve-person",
+        "chairperson"
       ]
     },
     {
       "label": "8 подъезд",
       "personIds": [
-        "chairperson",
         "vk-id133296016",
-        "reserve-person"
+        "reserve-person",
+        "chairperson"
       ]
     },
     {
       "label": "9 подъезд",
       "personIds": [
-        "chairperson",
         "vk-id145319957",
-        "reserve-person"
+        "reserve-person",
+        "chairperson"
       ]
     },
     {
       "label": "10 подъезд",
       "personIds": [
-        "chairperson",
         "vk-ananac1k",
-        "reserve-person"
+        "reserve-person",
+        "chairperson"
       ]
     },
     {
       "label": "11 подъезд",
       "personIds": [
-        "chairperson",
         "vk-marushashalfey",
-        "reserve-person"
+        "reserve-person",
+        "chairperson"
       ]
     },
     {
       "label": "12 подъезд",
       "personIds": [
-        "chairperson",
         "vk-id434704139",
-        "reserve-person"
+        "reserve-person",
+        "chairperson"
       ]
     },
     {
       "label": "13 подъезд",
       "personIds": [
-        "chairperson",
         "vk-id68547",
-        "reserve-person"
+        "reserve-person",
+        "chairperson"
       ]
     },
     {
       "label": "14 подъезд",
       "personIds": [
-        "chairperson",
         "vk-id9854585",
-        "reserve-person"
+        "reserve-person",
+        "chairperson"
       ]
     }
   ]
