@@ -253,9 +253,9 @@ function closeModal() {
 }
 
 function validateData(data) {
-  if (!data || typeof data !== 'object') throw new Error('contacts.jsonon должен содержать объект.');
-  if (!Array.isArray(data.people)) throw new Error('В contacts.jsonon нет массива people.');
-  if (!Array.isArray(data.entrances)) throw new Error('В contacts.jsonon нет массива entrances.');
+  if (!data || typeof data !== 'object') throw new Error('contacts.json должен содержать объект.');
+  if (!Array.isArray(data.people)) throw new Error('В contacts.json нет массива people.');
+  if (!Array.isArray(data.entrances)) throw new Error('В contacts.json нет массива entrances.');
 }
 
 function renderPage(data) {
@@ -296,16 +296,16 @@ function renderPage(data) {
 
 async function loadContacts() {
   try {
-    const response = await fetch('contacts.jsonon', { cache: 'no-store' });
+    const response = await fetch('contacts.json', { cache: 'no-store' });
     if (!response.ok) throw new Error('contacts.jsonon не загружен: HTTP ' + response.status);
 
     pageData = await response.json();
     renderPage(pageData);
   } catch (error) {
-    console.error('Не удалось загрузить contacts.jsonon.', error);
-    entranceList.innerHTML = '<p class="error">Не удалось загрузить список контактов. Проверьте файл contacts.jsonon.</p>';
+    console.error('Не удалось загрузить contacts.json.', error);
+    entranceList.innerHTML = '<p class="error">Не удалось загрузить список контактов. Проверьте файл contacts.json.</p>';
     debugError.hidden = false;
-    debugError.textContent = 'Ошибка загрузки contacts.jsonon: ' + error.message;
+    debugError.textContent = 'Ошибка загрузки contacts.json: ' + error.message;
   }
 }
 
