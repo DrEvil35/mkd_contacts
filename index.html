@@ -16,14 +16,19 @@
 
       <h1 id="page-title">Контакты по подъездам</h1>
       <p id="description" class="description">
-        Выберите свой подъезд, чтобы увидеть ответственных и удобные способы связи.
+        Выберите свой подъезд, чтобы увидеть ответственного и удобный способ связи.
       </p>
 
       <nav id="entrance-list" class="entrance-list" aria-label="Список подъездов">
         <noscript>Для просмотра списка контактов включите JavaScript.</noscript>
       </nav>
 
-      <p id="footer" class="footer">Для связи нажмите на нужный подъезд, затем выберите человека и соцсеть.</p>
+      <section id="common-contacts" class="common-section" aria-labelledby="common-title" hidden>
+        <h2 id="common-title" class="common-title">Общие контакты</h2>
+        <div id="common-list" class="person-list"></div>
+      </section>
+
+      <p id="footer" class="footer">Для связи с ответственным нажмите на свой подъезд.</p>
       <div id="debug-error" class="debug-error" hidden></div>
     </section>
   </main>
@@ -32,7 +37,7 @@
     <div class="modal-backdrop" data-close-modal></div>
     <section class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
       <button class="modal-close" type="button" aria-label="Закрыть окно" data-close-modal>×</button>
-      <div class="modal-kicker">Контакты</div>
+      <div class="modal-kicker">Ответственный</div>
       <h2 id="modal-title">Подъезд</h2>
       <p id="modal-subtitle" class="modal-subtitle"></p>
       <div id="modal-contacts" class="person-list"></div>

@@ -1,7 +1,7 @@
 const fallbackData = {
   "title": "Контакты по подъездам",
-  "description": "Выберите свой подъезд, чтобы увидеть ответственных и удобные способы связи.",
-  "footer": "Для связи нажмите на нужный подъезд, затем выберите человека и соцсеть.",
+  "description": "Выберите свой подъезд, чтобы увидеть ответственного и удобный способ связи.",
+  "footer": "Для связи с ответственным нажмите на свой подъезд.",
   "people": [
     {
       "id": "chairperson",
@@ -181,126 +181,94 @@ const fallbackData = {
           "label": "Написать в VK"
         }
       ]
-    },
-    {
-      "id": "reserve-person",
-      "fullName": "Замещающее лицо",
-      "role": "Замещающий контакт",
-      "note": "Контакты будут добавлены позже",
-      "contacts": []
     }
+  ],
+  "commonPersonIds": [
+    "chairperson"
   ],
   "entrances": [
     {
       "label": "1 подъезд",
       "personIds": [
-        "vk-id88635166",
-        "reserve-person",
-        "chairperson"
+        "vk-id88635166"
       ]
     },
     {
       "label": "2 подъезд",
       "personIds": [
-        "vk-dobriakova_annetta_astro",
-        "reserve-person",
-        "chairperson"
+        "vk-dobriakova_annetta_astro"
       ]
     },
     {
       "label": "3 подъезд",
       "personIds": [
-        "vk-id35704209",
-        "reserve-person",
-        "chairperson"
+        "vk-id35704209"
       ]
     },
     {
       "label": "4 подъезд",
       "personIds": [
-        "vk-id135852948",
-        "reserve-person",
-        "chairperson"
+        "vk-id135852948"
       ]
     },
     {
       "label": "5 подъезд",
       "personIds": [
-        "vk-dobriakova_annetta_astro",
-        "reserve-person",
-        "chairperson"
+        "vk-dobriakova_annetta_astro"
       ]
     },
     {
       "label": "6 подъезд",
       "personIds": [
-        "vk-dobriakova_annetta_astro",
-        "reserve-person",
-        "chairperson"
+        "vk-dobriakova_annetta_astro"
       ]
     },
     {
       "label": "7 подъезд",
       "personIds": [
-        "vk-svetlashshka",
-        "reserve-person",
-        "chairperson"
+        "vk-svetlashshka"
       ]
     },
     {
       "label": "8 подъезд",
       "personIds": [
-        "vk-id133296016",
-        "reserve-person",
-        "chairperson"
+        "vk-id133296016"
       ]
     },
     {
       "label": "9 подъезд",
       "personIds": [
-        "vk-id145319957",
-        "reserve-person",
-        "chairperson"
+        "vk-id145319957"
       ]
     },
     {
       "label": "10 подъезд",
       "personIds": [
-        "vk-ananac1k",
-        "reserve-person",
-        "chairperson"
+        "vk-ananac1k"
       ]
     },
     {
       "label": "11 подъезд",
       "personIds": [
-        "vk-marushashalfey",
-        "reserve-person",
-        "chairperson"
+        "vk-marushashalfey"
       ]
     },
     {
       "label": "12 подъезд",
       "personIds": [
-        "vk-id434704139",
-        "reserve-person",
-        "chairperson"
+        "vk-id434704139"
       ]
     },
     {
       "label": "13 подъезд",
       "personIds": [
-        "vk-id68547",
-        "reserve-person",
-        "chairperson"
+        "vk-id68547"
       ]
     },
     {
       "label": "14 подъезд",
       "personIds": [
-        "vk-id9854585",
-        "reserve-person",
-        "chairperson"
+        "vk-id9854585"
       ]
     }
   ]
@@ -310,6 +278,8 @@ let pageData = null;
 let peopleById = {};
 
 const entranceList = document.getElementById('entrance-list');
+const commonSection = document.getElementById('common-contacts');
+const commonList = document.getElementById('common-list');
 const modal = document.getElementById('contact-modal');
 const modalTitle = document.getElementById('modal-title');
 const modalSubtitle = document.getElementById('modal-subtitle');
@@ -343,16 +313,7 @@ function hasContacts(person) {
 }
 
 function shouldShowPerson(person) {
-  if (!person) return false;
-
-  const id = String(person.id || '').toLowerCase();
-  const role = String(person.role || '').toLowerCase();
-
-  if ((id === 'reserve-person' || role.indexOf('замещ') !== -1) && !hasContacts(person)) {
-    return false;
-  }
-
-  return true;
+  return !!person && hasContacts(person);
 }
 
 function getInitials(fullName) {
@@ -429,9 +390,25 @@ function createPersonCard(person) {
   return card;
 }
 
+function renderCommonContacts(data) {
+  const commonIds = Array.isArray(data.commonPersonIds) ? data.commonPersonIds : [];
+
+  commonList.innerHTML = '';
+
+  commonIds.forEach(function (personId) {
+    const person = peopleById[personId];
+
+    if (shouldShowPerson(person)) {
+      commonList.appendChild(createPersonCard(person));
+    }
+  });
+
+  commonSection.hidden = !commonList.children.length;
+}
+
 function openModal(entrance) {
   modalTitle.textContent = entrance.label;
-  modalSubtitle.textContent = 'Сначала ответственный по подъезду, ниже — председатель совета дома.';
+  modalSubtitle.textContent = 'Контакт ответственного по вашему подъезду.';
   modalContacts.innerHTML = '';
 
   const personIds = Array.isArray(entrance.personIds) ? entrance.personIds : [];
@@ -455,7 +432,7 @@ function openModal(entrance) {
   });
 
   if (!visibleCount) {
-    modalContacts.appendChild(createElement('div', 'empty-links', 'Для этого подъезда контакты пока не указаны.'));
+    modalContacts.appendChild(createElement('div', 'empty-links', 'Для этого подъезда контакт пока не указан.'));
   }
 
   modal.hidden = false;
@@ -503,6 +480,8 @@ function renderPage(data) {
     button.addEventListener('click', function () { openModal(entrance); });
     entranceList.appendChild(button);
   });
+
+  renderCommonContacts(data);
 }
 
 async function loadContacts() {
