@@ -129,6 +129,127 @@ body.modal-open { overflow: hidden; }
   mix-blend-mode: multiply;
 }
 
+.flower-ornament {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.flower-ornament span {
+  position: absolute;
+  display: block;
+  color: var(--terracotta);
+  line-height: 1;
+  opacity: 0.11;
+  filter: blur(0.15px);
+  transform-origin: center;
+}
+
+.flower-ornament span:nth-child(1) {
+  left: 7%;
+  top: 7%;
+  font-size: 19px;
+  transform: rotate(-18deg);
+}
+
+.flower-ornament span:nth-child(2) {
+  right: 10%;
+  top: 10%;
+  font-size: 42px;
+  opacity: 0.085;
+  transform: rotate(20deg);
+}
+
+.flower-ornament span:nth-child(3) {
+  left: 78%;
+  top: 30%;
+  font-size: 18px;
+  opacity: 0.10;
+  transform: rotate(-34deg);
+}
+
+.flower-ornament span:nth-child(4) {
+  left: 9%;
+  top: 42%;
+  font-size: 54px;
+  opacity: 0.055;
+  color: var(--teal);
+  transform: rotate(13deg);
+}
+
+.flower-ornament span:nth-child(5) {
+  right: 6%;
+  top: 52%;
+  font-size: 26px;
+  color: var(--teal);
+  opacity: 0.09;
+  transform: rotate(42deg);
+}
+
+.flower-ornament span:nth-child(6) {
+  left: 43%;
+  top: 18%;
+  font-size: 14px;
+  color: var(--sand);
+  opacity: 0.16;
+  transform: rotate(-8deg);
+}
+
+.flower-ornament span:nth-child(7) {
+  left: 35%;
+  top: 66%;
+  font-size: 34px;
+  opacity: 0.065;
+  transform: rotate(-24deg);
+}
+
+.flower-ornament span:nth-child(8) {
+  right: 18%;
+  bottom: 9%;
+  font-size: 58px;
+  color: var(--teal);
+  opacity: 0.045;
+  transform: rotate(31deg);
+}
+
+.flower-ornament span:nth-child(9) {
+  left: 8%;
+  bottom: 11%;
+  font-size: 23px;
+  color: var(--sand);
+  opacity: 0.14;
+  transform: rotate(17deg);
+}
+
+.flower-ornament span:nth-child(10) {
+  left: 58%;
+  top: 78%;
+  font-size: 16px;
+  opacity: 0.11;
+  transform: rotate(-42deg);
+}
+
+.flower-ornament span:nth-child(11) {
+  left: 24%;
+  top: 25%;
+  font-size: 13px;
+  color: var(--teal);
+  opacity: 0.13;
+  transform: rotate(45deg);
+}
+
+.flower-ornament span:nth-child(12) {
+  right: 34%;
+  top: 5%;
+  font-size: 24px;
+  color: var(--sand);
+  opacity: 0.12;
+  transform: rotate(-15deg);
+}
+
+
 .badge {
   position: relative;
   z-index: 1;
