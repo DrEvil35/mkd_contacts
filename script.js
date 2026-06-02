@@ -67,6 +67,7 @@ function createAvatar(person) {
   return avatar;
 }
 
+
 function isMobileDevice() {
   return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent || '');
 }
@@ -75,54 +76,182 @@ function hasAppUrl(link) {
   return !!(link && typeof link.appUrl === 'string' && link.appUrl.trim());
 }
 
+function logDeepLink(message, details) {
+  if (details !== undefined) {
+    console.log('[DeepLinker]', message, details);
+  } else {
+    console.log('[DeepLinker]', message);
+  }
+}
+
+function DeepLinker(options) {
+  if (!options) {
+    throw new Error('DeepLinker: no options');
+  }
+
+  var hasFocus = true;
+  var didHide = false;
+  var fallbackTimer = null;
+  var dialogTimeout = options.dialogTimeout || 700;
+  var fallbackDelay = options.fallbackDelay || 1200;
+
+  function clearFallbackTimer() {
+    if (fallbackTimer) {
+      window.clearTimeout(fallbackTimer);
+      fallbackTimer = null;
+    }
+  }
+
+  function onBlur() {
+    logDeepLink('window blur');
+    hasFocus = false;
+  }
+
+  function onVisibilityChange(event) {
+    var visibilityState = event && event.target ? event.target.visibilityState : document.visibilityState;
+    logDeepLink('visibilitychange: ' + visibilityState);
+
+    if (visibilityState === 'hidden') {
+      didHide = true;
+      clearFallbackTimer();
+    }
+  }
+
+  function onFocus() {
+    logDeepLink('window focus', {
+      hasFocus: hasFocus,
+      didHide: didHide
+    });
+
+    if (didHide) {
+      if (options.onReturn) {
+        options.onReturn();
+      }
+
+      didHide = false;
+    } else {
+      if (!hasFocus && options.onFallback) {
+        window.setTimeout(function () {
+          if (!didHide) {
+            options.onFallback();
+          }
+        }, dialogTimeout);
+      }
+    }
+
+    hasFocus = true;
+  }
+
+  function bind() {
+    logDeepLink('bind events');
+    window.addEventListener('blur', onBlur);
+    document.addEventListener('visibilitychange', onVisibilityChange);
+    window.addEventListener('focus', onFocus);
+  }
+
+  function destroy() {
+    logDeepLink('destroy events');
+    clearFallbackTimer();
+    window.removeEventListener('blur', onBlur);
+    document.removeEventListener('visibilitychange', onVisibilityChange);
+    window.removeEventListener('focus', onFocus);
+  }
+
+  function openURL(url) {
+    logDeepLink('open appUrl', url);
+
+    bind();
+
+    fallbackTimer = window.setTimeout(function () {
+      if (hasFocus && !didHide) {
+        logDeepLink('deeplink ignored by browser');
+        if (options.onIgnored) {
+          options.onIgnored();
+        }
+      }
+    }, fallbackDelay);
+
+    window.location.href = url;
+  }
+
+  return {
+    openURL: openURL,
+    destroy: destroy
+  };
+}
+
 function openAppUrlWithFallback(event, link) {
   /*
-    Универсальная логика без привязки к типу мессенджера.
-
     Desktop:
-      не перехватываем ссылку вообще;
-      работает обычный href из link.url.
+      обычный href = link.url, без перехвата.
 
-    Mobile iOS/Android:
-      если конкретная запись контакта содержит appUrl,
-      пробуем открыть appUrl;
-      если приложение не открылось, возвращаемся на link.url.
-
-    Важно:
-      type используется только для визуального стиля кнопки,
-      а не для выбора url/appUrl.
+    Mobile iOS / Android:
+      если у конкретного контакта есть appUrl, пробуем открыть приложение.
+      Если appUrl не сработал, fallback на link.url.
   */
-  if (!isMobileDevice() || !hasAppUrl(link)) {
+  if (!isMobileDevice()) {
+    logDeepLink('desktop detected, use normal href', link.url);
+    return;
+  }
+
+  if (!hasAppUrl(link)) {
+    logDeepLink('mobile detected, but appUrl is not set, use normal href', link.url);
     return;
   }
 
   event.preventDefault();
 
   var fallbackUrl = link.url;
-  var didLeavePage = false;
+  var appUrl = link.appUrl;
+  var didFallback = false;
+  var linker = null;
 
-  var fallbackTimer = window.setTimeout(function () {
-    if (!didLeavePage) {
-      window.location.href = fallbackUrl;
+  function goFallback(reason) {
+    if (didFallback) {
+      return;
     }
-  }, 1200);
 
-  var cancelFallback = function () {
-    didLeavePage = true;
-    window.clearTimeout(fallbackTimer);
-  };
+    didFallback = true;
+    logDeepLink('fallback to url: ' + reason, fallbackUrl);
 
-  window.addEventListener('pagehide', cancelFallback, { once: true });
-  window.addEventListener('blur', cancelFallback, { once: true });
-
-  document.addEventListener('visibilitychange', function () {
-    if (document.hidden) {
-      cancelFallback();
+    if (linker) {
+      linker.destroy();
     }
-  }, { once: true });
 
-  window.location.href = link.appUrl;
+    window.location.href = fallbackUrl;
+  }
+
+  logDeepLink('click intercepted', {
+    type: link.type,
+    label: link.label,
+    url: fallbackUrl,
+    appUrl: appUrl,
+    userAgent: navigator.userAgent
+  });
+
+  linker = DeepLinker({
+    dialogTimeout: 900,
+    fallbackDelay: 1300,
+    onIgnored: function () {
+      logDeepLink('onIgnored: browser did not react to appUrl');
+      goFallback('ignored');
+    },
+    onFallback: function () {
+      logDeepLink('onFallback: dialog closed or app not opened');
+      goFallback('fallback');
+    },
+    onReturn: function () {
+      logDeepLink('onReturn: user returned from native app');
+
+      if (linker) {
+        linker.destroy();
+      }
+    }
+  });
+
+  linker.openURL(appUrl);
 }
+
 
 function createContactLink(link) {
   const type = normalizeType(link.type);
@@ -131,6 +260,16 @@ function createContactLink(link) {
   const a = document.createElement('a');
   a.className = 'contact-link contact-link-' + type;
   a.href = link.url;
+  a.addEventListener('click', function (event) {
+    openAppUrlWithFallback(event, link);
+  });
+
+  /*
+    link.url — обычная браузерная ссылка.
+    link.appUrl — deeplink для мобильных устройств.
+    Выбор url/appUrl зависит только от наличия appUrl у конкретной записи.
+    type используется только для визуального оформления кнопки.
+  */
 
   const logo = createElement('span', 'contact-logo', meta.icon);
   const textWrap = createElement('span', 'contact-link-text');
@@ -253,9 +392,9 @@ function closeModal() {
 }
 
 function validateData(data) {
-  if (!data || typeof data !== 'object') throw new Error('contacts.json должен содержать объект.');
-  if (!Array.isArray(data.people)) throw new Error('В contacts.json нет массива people.');
-  if (!Array.isArray(data.entrances)) throw new Error('В contacts.json нет массива entrances.');
+  if (!data || typeof data !== 'object') throw new Error('contacts.jsonon должен содержать объект.');
+  if (!Array.isArray(data.people)) throw new Error('В contacts.jsonon нет массива people.');
+  if (!Array.isArray(data.entrances)) throw new Error('В contacts.jsonon нет массива entrances.');
 }
 
 function renderPage(data) {
@@ -296,16 +435,16 @@ function renderPage(data) {
 
 async function loadContacts() {
   try {
-    const response = await fetch('contacts.json', { cache: 'no-store' });
+    const response = await fetch('contacts.jsonon', { cache: 'no-store' });
     if (!response.ok) throw new Error('contacts.jsonon не загружен: HTTP ' + response.status);
 
     pageData = await response.json();
     renderPage(pageData);
   } catch (error) {
-    console.error('Не удалось загрузить contacts.json.', error);
-    entranceList.innerHTML = '<p class="error">Не удалось загрузить список контактов. Проверьте файл contacts.json.</p>';
+    console.error('Не удалось загрузить contacts.jsonon.', error);
+    entranceList.innerHTML = '<p class="error">Не удалось загрузить список контактов. Проверьте файл contacts.jsonon.</p>';
     debugError.hidden = false;
-    debugError.textContent = 'Ошибка загрузки contacts.json: ' + error.message;
+    debugError.textContent = 'Ошибка загрузки contacts.jsonon: ' + error.message;
   }
 }
 
