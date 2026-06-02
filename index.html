@@ -3,24 +3,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Старшие по подъездам</title>
+  <title>Контакты по подъездам</title>
   <meta name="description" content="Контакты старших по подъездам для помощи по вопросам голосования.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <main class="page">
-    <section class="card" aria-labelledby="page-title">
-      <div class="badge">МКД</div>
-      <h1 id="page-title">Старшие по подъездам</h1>
+    <section class="hero" aria-labelledby="page-title">
+      <div class="badge">Совет дома</div>
+      <h1 id="page-title">Контакты по подъездам</h1>
       <p id="description" class="description">
-        Выберите свой подъезд, чтобы увидеть председателя, ответственного по подъезду и замещающее лицо.
+        Выберите свой подъезд, чтобы увидеть ответственных и удобные способы связи.
       </p>
 
-      <nav id="entrance-list" class="links" aria-label="Список подъездов">
+      <nav id="entrance-list" class="entrance-grid" aria-label="Список подъездов">
         <noscript>Для просмотра списка контактов включите JavaScript.</noscript>
       </nav>
 
-      <p id="footer" class="footer">Страница создана для удобства жителей дома.</p>
+      <p id="footer" class="footer">Для связи нажмите на нужный подъезд, затем выберите человека и соцсеть.</p>
+      <div id="debug-error" class="debug-error" hidden></div>
     </section>
   </main>
 
@@ -28,7 +29,8 @@
     <div class="modal-backdrop" data-close-modal></div>
     <section class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
       <button class="modal-close" type="button" aria-label="Закрыть окно" data-close-modal>×</button>
-      <h2 id="modal-title">Контакты</h2>
+      <div class="modal-kicker">Контакты</div>
+      <h2 id="modal-title">Подъезд</h2>
       <p id="modal-subtitle" class="modal-subtitle"></p>
       <div id="modal-contacts" class="person-list"></div>
     </section>

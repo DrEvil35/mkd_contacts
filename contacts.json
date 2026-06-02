@@ -1,178 +1,178 @@
 {
-  "title": "Старшие по подъездам",
-  "description": "Выберите свой подъезд, чтобы увидеть председателя, ответственного по подъезду и замещающее лицо.",
-  "footer": "Страница создана для удобства жителей дома.",
+  "title": "Контакты по подъездам",
+  "description": "Выберите свой подъезд, чтобы увидеть ответственных и удобные способы связи.",
+  "footer": "Для связи нажмите на нужный подъезд, затем выберите человека и соцсеть.",
   "people": [
     {
       "id": "chairperson",
       "fullName": "Председатель совета дома",
-      "comment": "Общие вопросы по голосованию и работе совета дома",
+      "role": "Председатель",
       "contacts": [
         {
-          "type": "VK",
+          "type": "vk",
           "url": "https://vk.com/i_kill_you_nax",
-          "label": "VK"
+          "label": "Написать в VK"
         },
         {
-          "type": "Telegram",
+          "type": "telegram",
           "url": "https://t.me/Haskell35",
-          "label": "Telegram"
+          "label": "Написать в Telegram"
         },
         {
-          "type": "MAX",
+          "type": "max",
           "url": "https://max.ru/u/f9LHodD0cOL2_iK3o2berTpWfjcf1UFkm0GFnBEvH4FOQdmdR0J31PPRXEg",
-          "label": "MAX"
+          "label": "Написать в MAX"
         }
       ]
     },
     {
       "id": "vk-id88635166",
       "fullName": "ФИО не указано",
-      "comment": "Ответственный по подъезду",
+      "role": "Ответственный по подъезду",
       "contacts": [
         {
-          "type": "VK",
-          "url": "https://vk.ru/id88635166",
-          "label": "VK"
+          "type": "vk",
+          "url": "https://vk.com/id88635166",
+          "label": "Написать в VK"
         }
       ]
     },
     {
       "id": "vk-dobriakova_annetta_astro",
       "fullName": "ФИО не указано",
-      "comment": "Ответственный по подъезду",
+      "role": "Ответственный по подъезду",
       "contacts": [
         {
-          "type": "VK",
-          "url": "https://vk.ru/dobriakova_annetta_astro",
-          "label": "VK"
+          "type": "vk",
+          "url": "https://vk.com/dobriakova_annetta_astro",
+          "label": "Написать в VK"
         }
       ]
     },
     {
       "id": "vk-id35704209",
       "fullName": "ФИО не указано",
-      "comment": "Ответственный по подъезду",
+      "role": "Ответственный по подъезду",
       "contacts": [
         {
-          "type": "VK",
-          "url": "https://vk.ru/id35704209",
-          "label": "VK"
+          "type": "vk",
+          "url": "https://vk.com/id35704209",
+          "label": "Написать в VK"
         }
       ]
     },
     {
       "id": "vk-id135852948",
       "fullName": "ФИО не указано",
-      "comment": "Ответственный по подъезду",
+      "role": "Ответственный по подъезду",
       "contacts": [
         {
-          "type": "VK",
-          "url": "https://vk.ru/id135852948",
-          "label": "VK"
+          "type": "vk",
+          "url": "https://vk.com/id135852948",
+          "label": "Написать в VK"
         }
       ]
     },
     {
       "id": "vk-svetlashshka",
       "fullName": "ФИО не указано",
-      "comment": "Ответственный по подъезду",
+      "role": "Ответственный по подъезду",
       "contacts": [
         {
-          "type": "VK",
-          "url": "https://vk.ru/svetlashshka",
-          "label": "VK"
+          "type": "vk",
+          "url": "https://vk.com/svetlashshka",
+          "label": "Написать в VK"
         }
       ]
     },
     {
       "id": "vk-id133296016",
       "fullName": "ФИО не указано",
-      "comment": "Ответственный по подъезду",
+      "role": "Ответственный по подъезду",
       "contacts": [
         {
-          "type": "VK",
-          "url": "https://vk.ru/id133296016",
-          "label": "VK"
+          "type": "vk",
+          "url": "https://vk.com/id133296016",
+          "label": "Написать в VK"
         }
       ]
     },
     {
       "id": "vk-id145319957",
       "fullName": "ФИО не указано",
-      "comment": "Ответственный по подъезду",
+      "role": "Ответственный по подъезду",
       "contacts": [
         {
-          "type": "VK",
-          "url": "https://vk.ru/id145319957",
-          "label": "VK"
+          "type": "vk",
+          "url": "https://vk.com/id145319957",
+          "label": "Написать в VK"
         }
       ]
     },
     {
       "id": "vk-ananac1k",
       "fullName": "ФИО не указано",
-      "comment": "Ответственный по подъезду",
+      "role": "Ответственный по подъезду",
       "contacts": [
         {
-          "type": "VK",
-          "url": "https://vk.ru/ananac1k",
-          "label": "VK"
+          "type": "vk",
+          "url": "https://vk.com/ananac1k",
+          "label": "Написать в VK"
         }
       ]
     },
     {
       "id": "vk-marushashalfey",
       "fullName": "ФИО не указано",
-      "comment": "Ответственный по подъезду",
+      "role": "Ответственный по подъезду",
       "contacts": [
         {
-          "type": "VK",
-          "url": "https://vk.ru/marushashalfey",
-          "label": "VK"
+          "type": "vk",
+          "url": "https://vk.com/marushashalfey",
+          "label": "Написать в VK"
         }
       ]
     },
     {
       "id": "vk-id434704139",
       "fullName": "ФИО не указано",
-      "comment": "Ответственный по подъезду",
+      "role": "Ответственный по подъезду",
       "contacts": [
         {
-          "type": "VK",
-          "url": "https://vk.ru/id434704139",
-          "label": "VK"
+          "type": "vk",
+          "url": "https://vk.com/id434704139",
+          "label": "Написать в VK"
         }
       ]
     },
     {
       "id": "vk-id68547",
       "fullName": "ФИО не указано",
-      "comment": "Ответственный по подъезду",
+      "role": "Ответственный по подъезду",
       "contacts": [
         {
-          "type": "VK",
-          "url": "https://vk.ru/id68547",
-          "label": "VK"
+          "type": "vk",
+          "url": "https://vk.com/id68547",
+          "label": "Написать в VK"
         }
       ]
     },
     {
       "id": "vk-id9854585",
       "fullName": "ФИО не указано",
-      "comment": "Ответственный по подъезду",
+      "role": "Ответственный по подъезду",
       "contacts": [
         {
-          "type": "VK",
-          "url": "https://vk.ru/id9854585",
-          "label": "VK"
+          "type": "vk",
+          "url": "https://vk.com/id9854585",
+          "label": "Написать в VK"
         }
       ]
     },
     {
       "id": "reserve-person",
       "fullName": "Замещающее лицо",
-      "comment": "Может помочь, если основной ответственный недоступен",
+      "role": "Замещающий контакт",
       "contacts": []
     }
   ],
