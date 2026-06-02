@@ -74,8 +74,13 @@ function createContactLink(link) {
   const a = document.createElement('a');
   a.className = 'contact-link contact-link-' + type;
   a.href = link.url;
-  a.target = '_blank';
-  a.rel = 'noopener noreferrer';
+
+  /*
+    Важно для Android и WebView:
+    не используем target="_blank", чтобы переход шел в текущем окне.
+    Так браузер или WebView-клиент может передать ссылку системному обработчику:
+    VK, Telegram, MAX или другому установленному приложению.
+  */
 
   const logo = createElement('span', 'contact-logo', meta.icon);
   const textWrap = createElement('span', 'contact-link-text');
