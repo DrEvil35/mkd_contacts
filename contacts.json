@@ -5,8 +5,9 @@
   "people": [
     {
       "id": "chairperson",
-      "fullName": "Председатель совета дома",
+      "fullName": "Михайлов Александр",
       "role": "Председатель",
+      "note": "VK, Telegram, MAX",
       "contacts": [
         {
           "type": "vk",
@@ -27,8 +28,9 @@
     },
     {
       "id": "vk-id88635166",
-      "fullName": "ФИО не указано",
+      "fullName": "Екатерина Ильина",
       "role": "Ответственный по подъезду",
+      "note": "VK: id88635166",
       "contacts": [
         {
           "type": "vk",
@@ -39,8 +41,9 @@
     },
     {
       "id": "vk-dobriakova_annetta_astro",
-      "fullName": "ФИО не указано",
+      "fullName": "Добрякова Анна",
       "role": "Ответственный по подъезду",
+      "note": "VK: dobriakova_annetta_astro",
       "contacts": [
         {
           "type": "vk",
@@ -51,8 +54,9 @@
     },
     {
       "id": "vk-id35704209",
-      "fullName": "ФИО не указано",
+      "fullName": "Наталья Одинцова",
       "role": "Ответственный по подъезду",
+      "note": "VK: id35704209",
       "contacts": [
         {
           "type": "vk",
@@ -63,8 +67,9 @@
     },
     {
       "id": "vk-id135852948",
-      "fullName": "ФИО не указано",
+      "fullName": "Ольга Куликова",
       "role": "Ответственный по подъезду",
+      "note": "VK: id135852948",
       "contacts": [
         {
           "type": "vk",
@@ -75,8 +80,9 @@
     },
     {
       "id": "vk-svetlashshka",
-      "fullName": "ФИО не указано",
+      "fullName": "Светлана Казакова",
       "role": "Ответственный по подъезду",
+      "note": "VK: svetlashshka",
       "contacts": [
         {
           "type": "vk",
@@ -87,8 +93,9 @@
     },
     {
       "id": "vk-id133296016",
-      "fullName": "ФИО не указано",
+      "fullName": "Анна Лян",
       "role": "Ответственный по подъезду",
+      "note": "VK: id133296016",
       "contacts": [
         {
           "type": "vk",
@@ -99,8 +106,9 @@
     },
     {
       "id": "vk-id145319957",
-      "fullName": "ФИО не указано",
+      "fullName": "Ольга Белова",
       "role": "Ответственный по подъезду",
+      "note": "VK: id145319957",
       "contacts": [
         {
           "type": "vk",
@@ -111,8 +119,9 @@
     },
     {
       "id": "vk-ananac1k",
-      "fullName": "ФИО не указано",
+      "fullName": "Анастасия Филиппова",
       "role": "Ответственный по подъезду",
+      "note": "VK: ananac1k",
       "contacts": [
         {
           "type": "vk",
@@ -123,8 +132,9 @@
     },
     {
       "id": "vk-marushashalfey",
-      "fullName": "ФИО не указано",
+      "fullName": "Мария Солопова",
       "role": "Ответственный по подъезду",
+      "note": "VK: marushashalfey",
       "contacts": [
         {
           "type": "vk",
@@ -135,8 +145,9 @@
     },
     {
       "id": "vk-id434704139",
-      "fullName": "ФИО не указано",
+      "fullName": "Эдвард Кузюпов",
       "role": "Ответственный по подъезду",
+      "note": "VK: id434704139",
       "contacts": [
         {
           "type": "vk",
@@ -147,8 +158,9 @@
     },
     {
       "id": "vk-id68547",
-      "fullName": "ФИО не указано",
+      "fullName": "Александр Семичев",
       "role": "Ответственный по подъезду",
+      "note": "VK: id68547",
       "contacts": [
         {
           "type": "vk",
@@ -159,8 +171,9 @@
     },
     {
       "id": "vk-id9854585",
-      "fullName": "ФИО не указано",
+      "fullName": "Анна Волкова",
       "role": "Ответственный по подъезду",
+      "note": "VK: id9854585",
       "contacts": [
         {
           "type": "vk",
@@ -173,6 +186,7 @@
       "id": "reserve-person",
       "fullName": "Замещающее лицо",
       "role": "Замещающий контакт",
+      "note": "Контакты будут добавлены позже",
       "contacts": []
     }
   ],
