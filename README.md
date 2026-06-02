@@ -1,6 +1,6 @@
 # Контактная карта ответственных лиц
 
-Версия v17.
+Версия v25.
 
 ## Исправление
 
@@ -75,3 +75,136 @@ importantSummary.textContent = important.summary || '';
 - расположение выглядит псевдослучайным, но остаётся статичным;
 - слой декоративный и не мешает кликам, потому что `pointer-events: none`;
 - контент остаётся выше орнамента за счёт `z-index`.
+
+
+## Версия v21
+
+Ссылки теперь управляются через справочник `contacts.json`.
+
+Для каждого контакта можно указать:
+
+```json
+{
+  "type": "vk",
+  "url": "https://vk.com/id88635166",
+  "appUrl": "vkontakte://profile/id88635166",
+  "label": "Написать в VK"
+}
+```
+
+Правило работы:
+
+- `url` — обычная ссылка для браузера;
+- `appUrl` — deeplink для Android;
+- если Android и `appUrl` заполнен, используется `appUrl`;
+- иначе используется обычный `url`.
+
+Для Telegram:
+
+```json
+{
+  "type": "telegram",
+  "url": "https://t.me/Haskell35",
+  "appUrl": "tg://resolve?domain=Haskell35",
+  "label": "Написать в Telegram"
+}
+```
+
+Для MAX `appUrl` не добавлен, потому что нужна подтверждённая схема приложения.
+
+
+## Версия v23
+
+Реализована логика:
+
+- на компьютере ссылка всегда открывается как обычная HTTPS-ссылка из `url`;
+- на мобильных устройствах iOS/Android при наличии `appUrl` сначала пробуется deeplink;
+- если приложение не открылось, через короткую паузу происходит fallback на обычный `url`.
+
+Структура контакта:
+
+```json
+{
+  "type": "vk",
+  "url": "https://m.vk.com/id88635166",
+  "appUrl": "vkontakte://profile/id88635166",
+  "label": "Написать в VK"
+}
+```
+
+Для Telegram:
+
+```json
+{
+  "type": "telegram",
+  "url": "https://t.me/Haskell35",
+  "appUrl": "tg://resolve?domain=Haskell35",
+  "label": "Написать в Telegram"
+}
+```
+
+Для MAX `appUrl` не добавляется, пока нет подтверждённой рабочей схемы приложения.
+
+
+## Версия v24
+
+Логика `url` / `appUrl` стала полностью универсальной.
+
+Теперь сайт НЕ привязывает поведение к `type`.
+
+Правило:
+
+```text
+desktop:
+  всегда открывается link.url
+
+mobile iOS / Android:
+  если у конкретной записи контакта есть appUrl → пробуем appUrl
+  если appUrl нет → открывается link.url
+  если appUrl не открылся → fallback на link.url
+```
+
+`type` теперь используется только для визуального оформления кнопки:
+`vk`, `telegram`, `max`, `phone`, `email`, `whatsapp` и т.д.
+
+Пример универсальной записи:
+
+```json
+{
+  "type": "custom",
+  "url": "https://example.com/user",
+  "appUrl": "exampleapp://user",
+  "label": "Открыть контакт"
+}
+```
+
+Пример записи только для браузера:
+
+```json
+{
+  "type": "max",
+  "url": "https://max.ru/u/example",
+  "label": "Написать в MAX"
+}
+```
+
+Вторая запись не содержит `appUrl`, поэтому на мобильном и на компьютере будет открываться обычный `url`.
+
+
+## Версия v25
+
+Справочник теперь только один:
+
+- `contacts.json`
+
+Файл `contacts.js` исключён из архива и больше не используется.
+
+Сайт загружает данные только так:
+
+```js
+const response = await fetch('contacts.json', { cache: 'no-store' });
+pageData = await response.json();
+renderPage(pageData);
+```
+
+Для обновления данных нужно редактировать только `contacts.json`.

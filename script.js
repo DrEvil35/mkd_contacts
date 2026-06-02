@@ -67,6 +67,63 @@ function createAvatar(person) {
   return avatar;
 }
 
+function isMobileDevice() {
+  return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent || '');
+}
+
+function hasAppUrl(link) {
+  return !!(link && typeof link.appUrl === 'string' && link.appUrl.trim());
+}
+
+function openAppUrlWithFallback(event, link) {
+  /*
+    Универсальная логика без привязки к типу мессенджера.
+
+    Desktop:
+      не перехватываем ссылку вообще;
+      работает обычный href из link.url.
+
+    Mobile iOS/Android:
+      если конкретная запись контакта содержит appUrl,
+      пробуем открыть appUrl;
+      если приложение не открылось, возвращаемся на link.url.
+
+    Важно:
+      type используется только для визуального стиля кнопки,
+      а не для выбора url/appUrl.
+  */
+  if (!isMobileDevice() || !hasAppUrl(link)) {
+    return;
+  }
+
+  event.preventDefault();
+
+  var fallbackUrl = link.url;
+  var didLeavePage = false;
+
+  var fallbackTimer = window.setTimeout(function () {
+    if (!didLeavePage) {
+      window.location.href = fallbackUrl;
+    }
+  }, 1200);
+
+  var cancelFallback = function () {
+    didLeavePage = true;
+    window.clearTimeout(fallbackTimer);
+  };
+
+  window.addEventListener('pagehide', cancelFallback, { once: true });
+  window.addEventListener('blur', cancelFallback, { once: true });
+
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) {
+      cancelFallback();
+    }
+  }, { once: true });
+
+  window.location.href = link.appUrl;
+}
+
 function createContactLink(link) {
   const type = normalizeType(link.type);
   const meta = socialMeta[type] || { name: link.type || 'Ссылка', icon: '↗' };
@@ -74,13 +131,6 @@ function createContactLink(link) {
   const a = document.createElement('a');
   a.className = 'contact-link contact-link-' + type;
   a.href = link.url;
-
-  /*
-    Важно для Android и WebView:
-    не используем target="_blank", чтобы переход шел в текущем окне.
-    Так браузер или WebView-клиент может передать ссылку системному обработчику:
-    VK, Telegram, MAX или другому установленному приложению.
-  */
 
   const logo = createElement('span', 'contact-logo', meta.icon);
   const textWrap = createElement('span', 'contact-link-text');
@@ -203,9 +253,9 @@ function closeModal() {
 }
 
 function validateData(data) {
-  if (!data || typeof data !== 'object') throw new Error('contacts.json должен содержать объект.');
-  if (!Array.isArray(data.people)) throw new Error('В contacts.json нет массива people.');
-  if (!Array.isArray(data.entrances)) throw new Error('В contacts.json нет массива entrances.');
+  if (!data || typeof data !== 'object') throw new Error('contacts.jsonon должен содержать объект.');
+  if (!Array.isArray(data.people)) throw new Error('В contacts.jsonon нет массива people.');
+  if (!Array.isArray(data.entrances)) throw new Error('В contacts.jsonon нет массива entrances.');
 }
 
 function renderPage(data) {
@@ -246,16 +296,16 @@ function renderPage(data) {
 
 async function loadContacts() {
   try {
-    const response = await fetch('contacts.json', { cache: 'no-store' });
-    if (!response.ok) throw new Error('contacts.json не загружен: HTTP ' + response.status);
+    const response = await fetch('contacts.jsonon', { cache: 'no-store' });
+    if (!response.ok) throw new Error('contacts.jsonon не загружен: HTTP ' + response.status);
 
     pageData = await response.json();
     renderPage(pageData);
   } catch (error) {
-    console.error('Не удалось загрузить contacts.json.', error);
-    entranceList.innerHTML = '<p class="error">Не удалось загрузить список контактов. Проверьте файл contacts.json.</p>';
+    console.error('Не удалось загрузить contacts.jsonon.', error);
+    entranceList.innerHTML = '<p class="error">Не удалось загрузить список контактов. Проверьте файл contacts.jsonon.</p>';
     debugError.hidden = false;
-    debugError.textContent = 'Ошибка загрузки contacts.json: ' + error.message;
+    debugError.textContent = 'Ошибка загрузки contacts.jsonon: ' + error.message;
   }
 }
 
