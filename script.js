@@ -1,5 +1,6 @@
 const fallbackData = {
-  "title": "Контакты по подъездам",
+  "title": "Совет дома",
+  "subtitle": "Шекснинский пр-кт, д.16 · ЖК «Мечта»",
   "description": "Выберите свой подъезд, чтобы увидеть ответственного и удобный способ связи.",
   "footer": "Для связи с ответственным нажмите на свой подъезд.",
   "people": [
@@ -331,6 +332,50 @@ function getInitials(fullName) {
     .join('');
 }
 
+function getVkHandle(person) {
+  if (!person || !Array.isArray(person.contacts)) return '';
+
+  for (let i = 0; i < person.contacts.length; i += 1) {
+    const contact = person.contacts[i];
+    if (!contact || normalizeType(contact.type) !== 'vk' || !contact.url) continue;
+
+    const match = String(contact.url).match(/vk\.(?:com|ru)\/([^/?#]+)/i);
+    if (match && match[1]) return match[1];
+  }
+
+  return '';
+}
+
+function createAvatar(person) {
+  const avatar = createElement('div', 'person-avatar');
+  const initials = createElement('span', 'person-initials', getInitials(person.fullName));
+  avatar.appendChild(initials);
+
+  const vkHandle = getVkHandle(person);
+
+  if (vkHandle) {
+    const img = document.createElement('img');
+    img.className = 'person-photo';
+    img.alt = '';
+    img.loading = 'lazy';
+    img.referrerPolicy = 'no-referrer';
+    img.src = 'https://unavatar.io/vk/' + encodeURIComponent(vkHandle);
+
+    img.addEventListener('load', function () {
+      avatar.className += ' person-avatar-has-photo';
+    });
+
+    img.addEventListener('error', function () {
+      img.remove();
+      avatar.className = avatar.className.replace(' person-avatar-has-photo', '');
+    });
+
+    avatar.appendChild(img);
+  }
+
+  return avatar;
+}
+
 function createContactLink(link) {
   const type = normalizeType(link.type);
   const meta = socialMeta[type] || { name: link.type || 'Ссылка', icon: '↗' };
@@ -362,7 +407,7 @@ function createPersonCard(person) {
   }
 
   const header = createElement('div', 'person-header');
-  const avatar = createElement('div', 'person-avatar', getInitials(person.fullName));
+  const avatar = createAvatar(person);
   const text = createElement('div', 'person-text');
   const role = createElement('div', 'person-role', person.role || 'Контакт');
   const name = createElement('div', 'person-name', person.fullName || 'Без имени');
@@ -454,8 +499,9 @@ function validateData(data) {
 function renderPage(data) {
   validateData(data);
 
-  document.title = data.title || document.title;
-  document.getElementById('page-title').textContent = data.title || 'Контакты по подъездам';
+  document.title = (data.title || 'Совет дома') + ' · ЖК «Мечта»';
+  document.getElementById('page-title').textContent = data.title || 'Совет дома';
+  document.getElementById('subtitle').textContent = data.subtitle || 'Шекснинский пр-кт, д.16 · ЖК «Мечта»';
   document.getElementById('description').textContent = data.description || '';
   document.getElementById('footer').textContent = data.footer || '';
 
