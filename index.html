@@ -13,53 +13,27 @@
       <div class="badge">МКД</div>
       <h1 id="page-title">Старшие по подъездам</h1>
       <p id="description" class="description">
-        Если у вас возникли вопросы по заполнению или сдаче бланка голосования, выберите свой подъезд и напишите старшему в VK.
+        Выберите свой подъезд, чтобы увидеть председателя, ответственного по подъезду и замещающее лицо.
       </p>
 
-      <nav id="links" class="links" aria-label="Список контактов по подъездам">
-        <noscript>
-          Для просмотра списка контактов включите JavaScript.
-        </noscript>
+      <nav id="entrance-list" class="links" aria-label="Список подъездов">
+        <noscript>Для просмотра списка контактов включите JavaScript.</noscript>
       </nav>
 
       <p id="footer" class="footer">Страница создана для удобства жителей дома.</p>
     </section>
   </main>
 
-  <script>
-    async function loadContacts() {
-      const links = document.getElementById('links');
+  <div id="contact-modal" class="modal" hidden>
+    <div class="modal-backdrop" data-close-modal></div>
+    <section class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close" type="button" aria-label="Закрыть окно" data-close-modal>×</button>
+      <h2 id="modal-title">Контакты</h2>
+      <p id="modal-subtitle" class="modal-subtitle"></p>
+      <div id="modal-contacts" class="person-list"></div>
+    </section>
+  </div>
 
-      try {
-        const response = await fetch('contacts.json', { cache: 'no-store' });
-        if (!response.ok) {
-          throw new Error('Не удалось загрузить contacts.json');
-        }
-
-        const data = await response.json();
-
-        document.title = data.title || document.title;
-        document.getElementById('page-title').textContent = data.title || 'Старшие по подъездам';
-        document.getElementById('description').textContent = data.description || '';
-        document.getElementById('footer').textContent = data.footer || '';
-
-        links.innerHTML = '';
-
-        data.contacts.forEach(function (item) {
-          const link = document.createElement('a');
-          link.className = 'link-button';
-          link.href = item.url;
-          link.textContent = item.label;
-          link.target = '_blank';
-          link.rel = 'noopener noreferrer';
-          links.appendChild(link);
-        });
-      } catch (error) {
-        links.innerHTML = '<p class="error">Не удалось загрузить список контактов. Попробуйте открыть страницу позже.</p>';
-      }
-    }
-
-    loadContacts();
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
