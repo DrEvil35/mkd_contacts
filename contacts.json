@@ -1,0 +1,63 @@
+{
+  "title": "Старшие по подъездам",
+  "description": "Если у вас возникли вопросы по заполнению или сдаче бланка голосования, выберите свой подъезд и напишите старшему в VK.",
+  "footer": "Страница создана для удобства жителей дома.",
+  "contacts": [
+    {
+      "label": "1 подъезд",
+      "url": "https://vk.ru/id88635166"
+    },
+    {
+      "label": "2 подъезд",
+      "url": "https://vk.ru/dobriakova_annetta_astro"
+    },
+    {
+      "label": "3 подъезд",
+      "url": "https://vk.ru/id35704209"
+    },
+    {
+      "label": "4 подъезд",
+      "url": "https://vk.ru/id135852948"
+    },
+    {
+      "label": "5 подъезд",
+      "url": "https://vk.ru/dobriakova_annetta_astro"
+    },
+    {
+      "label": "6 подъезд",
+      "url": "https://vk.ru/dobriakova_annetta_astro"
+    },
+    {
+      "label": "7 подъезд",
+      "url": "https://vk.ru/svetlashshka"
+    },
+    {
+      "label": "8 подъезд",
+      "url": "https://vk.ru/id133296016"
+    },
+    {
+      "label": "9 подъезд",
+      "url": "https://vk.ru/id145319957"
+    },
+    {
+      "label": "10 подъезд",
+      "url": "https://vk.ru/ananac1k"
+    },
+    {
+      "label": "11 подъезд",
+      "url": "https://vk.ru/marushashalfey"
+    },
+    {
+      "label": "12 подъезд",
+      "url": "https://vk.ru/id434704139"
+    },
+    {
+      "label": "13 подъезд",
+      "url": "https://vk.ru/id68547"
+    },
+    {
+      "label": "14 подъезд",
+      "url": "https://vk.ru/id9854585"
+    }
+  ]
+}

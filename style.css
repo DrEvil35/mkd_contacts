@@ -1,0 +1,133 @@
+:root {
+  --bg: #f4f2ee;
+  --card: #ffffff;
+  --text: #242424;
+  --muted: #666666;
+  --accent: #3f6f63;
+  --accent-dark: #31574d;
+  --border: #e4dfd6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+.page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 24px 14px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.card {
+  width: 100%;
+  max-width: 460px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 24px 18px 18px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06);
+}
+
+.badge {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #edf3f1;
+  color: var(--accent-dark);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+h1 {
+  margin: 0;
+  font-size: 28px;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+}
+
+.description {
+  margin: 12px 0 20px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.links {
+  display: grid;
+  gap: 10px;
+}
+
+.link-button {
+  display: block;
+  width: 100%;
+  padding: 15px 16px;
+  border-radius: 16px;
+  background: var(--accent);
+  color: #ffffff;
+  text-decoration: none;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.2;
+  transition: transform 0.12s ease, background 0.12s ease;
+}
+
+.link-button:hover,
+.link-button:focus {
+  background: var(--accent-dark);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.link-button:active {
+  transform: translateY(0);
+}
+
+.footer {
+  margin: 18px 0 0;
+  color: var(--muted);
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.error {
+  margin: 0;
+  padding: 14px;
+  border-radius: 14px;
+  background: #fff0f0;
+  color: #8a2020;
+  text-align: center;
+}
+
+@media (max-width: 380px) {
+  .card {
+    border-radius: 20px;
+    padding: 20px 14px 16px;
+  }
+
+  h1 {
+    font-size: 25px;
+  }
+
+  .description {
+    font-size: 15px;
+  }
+}

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Старшие по подъездам</title>
+  <meta name="description" content="Контакты старших по подъездам для помощи по вопросам голосования.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <section class="card" aria-labelledby="page-title">
+      <div class="badge">МКД</div>
+      <h1 id="page-title">Старшие по подъездам</h1>
+      <p id="description" class="description">
+        Если у вас возникли вопросы по заполнению или сдаче бланка голосования, выберите свой подъезд и напишите старшему в VK.
+      </p>
+
+      <nav id="links" class="links" aria-label="Список контактов по подъездам">
+        <noscript>
+          Для просмотра списка контактов включите JavaScript.
+        </noscript>
+      </nav>
+
+      <p id="footer" class="footer">Страница создана для удобства жителей дома.</p>
+    </section>
+  </main>
+
+  <script>
+    async function loadContacts() {
+      const links = document.getElementById('links');
+
+      try {
+        const response = await fetch('contacts.json', { cache: 'no-store' });
+        if (!response.ok) {
+          throw new Error('Не удалось загрузить contacts.json');
+        }
+
+        const data = await response.json();
+
+        document.title = data.title || document.title;
+        document.getElementById('page-title').textContent = data.title || 'Старшие по подъездам';
+        document.getElementById('description').textContent = data.description || '';
+        document.getElementById('footer').textContent = data.footer || '';
+
+        links.innerHTML = '';
+
+        data.contacts.forEach(function (item) {
+          const link = document.createElement('a');
+          link.className = 'link-button';
+          link.href = item.url;
+          link.textContent = item.label;
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+          links.appendChild(link);
+        });
+      } catch (error) {
+        links.innerHTML = '<p class="error">Не удалось загрузить список контактов. Попробуйте открыть страницу позже.</p>';
+      }
+    }
+
+    loadContacts();
+  </script>
+</body>
+</html>
