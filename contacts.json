@@ -19,7 +19,7 @@
           "type": "vk",
           "url": "https://vk.com/i_kill_you_nax",
           "label": "Написать в VK",
-          "appUrl": "vk://profile/i_kill_you_nax"
+          "appUrl": "vk://vk.com/i_kill_you_nax"
         },
         {
           "type": "telegram",
