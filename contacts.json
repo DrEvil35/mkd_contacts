@@ -19,7 +19,7 @@
           "type": "vk",
           "url": "https://vk.com/i_kill_you_nax",
           "label": "Написать в VK",
-          "appUrl": "vkontakte://profile/i_kill_you_nax"
+          "appUrl": "vk://profile/i_kill_you_nax"
         },
         {
           "type": "telegram",
@@ -44,7 +44,7 @@
           "type": "vk",
           "url": "https://vk.com/id88635166",
           "label": "Написать в VK",
-          "appUrl": "vkontakte://profile/id88635166"
+          "appUrl": "vk://profile/id88635166"
         }
       ]
     },
@@ -58,7 +58,7 @@
           "type": "vk",
           "url": "https://vk.com/dobriakova_annetta_astro",
           "label": "Написать в VK",
-          "appUrl": "vkontakte://profile/dobriakova_annetta_astro"
+          "appUrl": "vk://profile/dobriakova_annetta_astro"
         }
       ]
     },
@@ -72,7 +72,7 @@
           "type": "vk",
           "url": "https://vk.com/id35704209",
           "label": "Написать в VK",
-          "appUrl": "vkontakte://profile/id35704209"
+          "appUrl": "vk://profile/id35704209"
         }
       ]
     },
@@ -86,7 +86,7 @@
           "type": "vk",
           "url": "https://vk.com/id135852948",
           "label": "Написать в VK",
-          "appUrl": "vkontakte://profile/id135852948"
+          "appUrl": "vk://profile/id135852948"
         }
       ]
     },
@@ -100,7 +100,7 @@
           "type": "vk",
           "url": "https://vk.com/svetlashshka",
           "label": "Написать в VK",
-          "appUrl": "vkontakte://profile/svetlashshka"
+          "appUrl": "vk://profile/svetlashshka"
         }
       ]
     },
@@ -114,7 +114,7 @@
           "type": "vk",
           "url": "https://vk.com/id133296016",
           "label": "Написать в VK",
-          "appUrl": "vkontakte://profile/id133296016"
+          "appUrl": "vk://profile/id133296016"
         }
       ]
     },
@@ -128,7 +128,7 @@
           "type": "vk",
           "url": "https://vk.com/id145319957",
           "label": "Написать в VK",
-          "appUrl": "vkontakte://profile/id145319957"
+          "appUrl": "vk://profile/id145319957"
         }
       ]
     },
@@ -142,7 +142,7 @@
           "type": "vk",
           "url": "https://vk.com/ananac1k",
           "label": "Написать в VK",
-          "appUrl": "vkontakte://profile/ananac1k"
+          "appUrl": "vk://profile/ananac1k"
         }
       ]
     },
@@ -156,7 +156,7 @@
           "type": "vk",
           "url": "https://vk.com/marushashalfey",
           "label": "Написать в VK",
-          "appUrl": "vkontakte://profile/marushashalfey"
+          "appUrl": "vk://profile/marushashalfey"
         }
       ]
     },
@@ -170,7 +170,7 @@
           "type": "vk",
           "url": "https://vk.com/id434704139",
           "label": "Написать в VK",
-          "appUrl": "vkontakte://profile/id434704139"
+          "appUrl": "vk://profile/id434704139"
         }
       ]
     },
@@ -184,7 +184,7 @@
           "type": "vk",
           "url": "https://vk.com/id68547",
           "label": "Написать в VK",
-          "appUrl": "vkontakte://profile/id68547"
+          "appUrl": "vk://profile/id68547"
         }
       ]
     },
@@ -198,7 +198,7 @@
           "type": "vk",
           "url": "https://vk.com/id9854585",
           "label": "Написать в VK",
-          "appUrl": "vkontakte://profile/id9854585"
+          "appUrl": "vk://profile/id9854585"
         }
       ]
     }
