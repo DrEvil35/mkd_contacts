@@ -10,6 +10,19 @@
   },
   "people": [
     {
+      "id": "secretary",
+      "fullName": "Денис Самутин",
+      "role": "Секретарь",
+      "note": "VK",
+      "contacts": [
+        {
+          "type": "vk",
+          "url": "https://vk.com/id24073055",
+          "label": "Написать в VK",
+          "appUrl": "vk://vk.com/id24073055"
+      ]
+    },
+    {
       "id": "chairperson",
       "fullName": "Михайлов Александр",
       "role": "Председатель",
@@ -204,7 +217,8 @@
     }
   ],
   "commonPersonIds": [
-    "chairperson"
+    "chairperson",
+    "secretary"
   ],
   "entrances": [
     {
